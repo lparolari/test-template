@@ -1,0 +1,21 @@
+sudo: required
+language: generic
+services: docker
+
+env:
+  global:
+    - MAINFILE="test"
+
+script:
+  - docker pull dxjoke/tectonic-docker
+  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 $MAINFILE.tex; biber $MAINFILE; tectonic $MAINFILE.tex"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: H/DEPtwr4+KQ4ei6V7R7D8DySlDCeklsFaLoKv7w8015PGPBxEdWeCkkVTx0oX2A2NWOSX/hCoCvBx1GKoyRiKWAKvm49X/wgcinz7xZ27eFiMoS9+1M1/6YRl7LXAcckZcWmte3CTPAF+TaSw0pckWxPHgHdkvOPAXRuDgsd1JKnIkQCyOdHfIUFlS/12RDhoDC8ZuxAa9u/A/bcP26Qrd4auINrf4dU7KXu84fBtUPTVbpslQU/pB/aMUdCn7izkfCfdbGhE7BRmS2PQ6Sbnc9cvcKbLsS9jFB6Rau26UbUFNYC/6yOldSLOj1K2IaHBQbgMSqXdvmZzU9V9AvwmP59OMT18ocxb3snhBvFHv1NFXwyrCCCtkqXVZD80Sg7aVvXS3toDP8eDH0RC3OKmxO65R3xAJJhlF4WoHGIMwiPiPX21NtV0FGZAdbK4eHuaAdH94ilVFEITK9n6hBGhML/w4sOSJSc/ZY+OVpk6Gxt8QBRaw17YHOBPkVAhZz+7WOnbTiOIWBCereNy4qLPf3zcO9gLF0UEvwzPLO/M/LZCgc/7QWLOgbxLoDMaxyJupW7mhNbE3gEwA6I86Mr3UxgBbkiafj6S6Z6sCY+RIpCRrekYJlov66PqELGmDJtw0221V8LuGgDbvDgCTvJFxA0VQps7tXQaHLunT+/xc=
+  file: "$TRAVIS_BUILD_DIR/${MAINFILE}.pdf"
+  skip_cleanup: true
+  on:
+    repo: lparolari/test-template
+    tags: true

@@ -1,0 +1,71 @@
+%% ***************************************************************
+%  Copyright (C) Luca Parolari 2019
+%  
+%  luca.parolari23@gmail.com
+%
+%  You should have received a copy of the license with this file,
+%  if not write to the author and request the license.
+
+% !TeX spellcheck = it_IT
+%\documentclass[addpoints,12pt]{exam}
+\documentclass[addpoints,12pt,answers]{exam}
+
+%% ***************************************************************
+%  PACKAGES
+%  ========
+
+%% ACTIVE
+%  ------
+\input{packages.tex}
+
+%% ***************************************************************
+%  RESOURCES
+%  =========
+\input{prooftree.tex}
+\input{macros.tex}
+
+
+%% ***************************************************************
+%  CONFIGURATIONS
+%  ==============
+
+\input{examconfig.tex}
+
+
+% *******************************************************************
+% DOCUMENT
+% ========
+
+\title{Verifica di Informatica}
+\author{\emph{Docente:} Luca Parolari\footnote{\href{mailto:luca.parolari23@gmail.com}{luca.parolari23@gmail.com}}}
+\date{\vspace{-5ex}}
+
+% document
+
+\begin{document}
+	\maketitle
+	
+	\makebox[3in]{\textit{Nome Cognome}:\enspace\hrulefill}
+	\makebox[1.5in]{\textit{Classe}: CLASSE}
+	\makebox[1.5in]{\textit{Data}: DATA}
+	
+	\begin{questions}
+		\question[1] What was the color of Napoleone's white horse?
+	
+		\begin{solution}
+			Purple.
+		\end{solution}
+	
+		\question[1000] Write an algorithm that calculates the answer to the fundamental question about life, the universe and everything.
+		
+		\begin{solution}
+			\begin{lstlisting}[style=mycpp]
+			int main() {
+			    return 42
+			}
+		    \end{lstlisting}
+		\end{solution}
+		
+	\end{questions}
+	
+\end{document}
