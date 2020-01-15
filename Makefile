@@ -1,12 +1,13 @@
 MAINFILE = test
 SRC = $(shell pwd)
 BUILD_DIR = _build
+FINAL_DIR = final
+SOLUTION_DIR = solution
 
 
 # ***********************************************************
 # ****** MAIN
 
-.PHONY: all
 all:  # all do nothing by default
 
 pdf: pdf1  # default
@@ -14,6 +15,12 @@ pdf1: pdflatex bib pdflatex
 pdf2: pdfdocker
 
 prettify: backup tabs2spaces rmTrailingSpaces
+
+final: copyFinalPdf
+solution: copySolutionPdf
+
+.PHONY: all pdf pdf1 pdf2 prettify final solution
+
 
 # ***********************************************************
 # ****** BUILD RECIPES
@@ -53,6 +60,18 @@ rmTrailingSpaces:
 # do nothing for now
 # FIXME: the $ si interpreted in bash end cause the sed command to fail!
 # sed --in-place "s/[[:space:]]\+$//" ${MAINFILE}.tex
+
+# copy final pdf
+copyFinalPdf:
+	cp --force "${MAINFILE}.pdf" "${FINAL_DIR}/${MAINFILE}.pdf"
+
+# copy solution pdf
+copySolutionPdf:
+	cp --force "${MAINFILE}.pdf" "${SOLUTION_DIR}/${MAINFILE}.pdf"
+
+.PHONY: pdfdocker pdflatex bib read edit backup restore tabs2spaces
+	rmTrailingSpaces copyFinalPdf copySolutionPdf
+
 
 # ***********************************************************
 # ****** CLEAN RECIPES
