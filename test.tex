@@ -1,6 +1,6 @@
 %% ***************************************************************
 %  Copyright (C) Luca Parolari 2019
-%  
+%
 %  luca.parolari23@gmail.com
 %
 %  You should have received a copy of the license with this file,
@@ -14,15 +14,17 @@
 %  PACKAGES
 %  ========
 
-%% ACTIVE
+%% active
 %  ------
 \input{packages.tex}
 
 %% ***************************************************************
 %  RESOURCES
 %  =========
+
 \input{prooftree.tex}
 \input{macros.tex}
+\input{config.tex}
 
 
 %% ***************************************************************
@@ -31,8 +33,8 @@
 
 \input{examconfig.tex}
 
-
-% *******************************************************************
+% ****************************************************************
+% ****************************************************************
 % DOCUMENT
 % ========
 
@@ -43,44 +45,64 @@
 % document
 
 \begin{document}
-	\maketitle
-	
-	\makebox[3in]{\textit{Nome Cognome}:\enspace\hrulefill}
-	\makebox[1.5in]{\textit{Classe}: CLASSE}
-	\makebox[1.5in]{\textit{Data}: DATA}
-	
-	\vspace*{\fill}
-	
-	\section*{Istruzioni}
-	\begin{itemize}
-		\item Leggere \textbf{attentamente} la consegna e realizzare gli esercizi.
-		\item \'E possibile consultare tutto il materiale su Google Classroom e la documentazione di C++ sul web.
-		\item Al termine, consegnare tutti i file sorgenti (\texttt{.cpp}) su Google Classroom. Se consegnati in altro modo, ricordarsi di aggiungere il cognome al nome del file.
-	\end{itemize}
-	
-	\vspace*{\fill}
-	
-	\pagebreak
-	
-	\section{Consegna}
-	
-	\begin{questions}
-		\question[1] What was the color of Napoleone's white horse?
-	
-		\begin{solution}
-			Purple.
-		\end{solution}
-	
-		\question[1000] Write an algorithm that calculates the answer to the fundamental question about life, the universe and everything.
-		
-		\begin{solution}
-			\begin{lstlisting}[style=mycpp]
-			int main() {
-			    return 42
-			}
-		    \end{lstlisting}
-		\end{solution}
-		
-	\end{questions}
-	
+    \maketitle
+
+    \makebox[3in]{\textit{Nome Cognome}:\enspace\hrulefill}
+    \makebox[1.5in]{\textit{Classe}: CLASSE}
+    \makebox[1.5in]{\textit{Data}: DATA}
+
+    \vspace*{\fill}
+
+    \section*{Istruzioni}
+    \begin{itemize}
+        \item Leggere \textbf{attentamente} la consegna e realizzare
+          gli esercizi.
+        \item \'E possibile consultare tutto il materiale su Google
+          Classroom, la documentazione di C++ ed eventuali risorse
+          online riguardanti la programmazione.
+        \item Al termine, consegnare tutti i file sorgenti
+          (\texttt{.cpp}) su Google Classroom. Altre modalità di
+          consegna non sono accettate.
+        \item La consegna deve essere effettuata rispettando la
+          scadenza impostata su Classroom. Le consegne effettuate in
+          ritardo sono annullate e la valutazione assegnata è
+          \emph{impreparato}.
+    \end{itemize}
+
+    \tableofcontents
+
+    \vspace*{\fill}
+    \pagebreak
+
+    \section{Consegna}
+
+    \begin{questions}
+        \question[1 \half] What was the color of Napoleone's white
+        horse?
+
+        \begin{solution}
+        Purple.
+        \end{solution}
+
+        \question[1000] Write an algorithm that calculates the answer
+        to the fundamental question about life, the universe and
+        everything.
+
+        \begin{examplenon}\ 
+            \begin{lstlisting}[style=verbatim]
+            > Hello world: %\underline{this is an input}%
+            > 42
+            \end{lstlisting}
+        \end{examplenon}
+
+        \begin{solution}
+            \begin{lstlisting}[style=mycpp]
+            int main() {
+                return 42
+            }
+            \end{lstlisting}
+        \end{solution}
+
+    \end{questions}
+
 \end{document}
